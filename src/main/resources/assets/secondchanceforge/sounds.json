@@ -1,0 +1,8 @@
+{
+  "player.classic_hurt": {
+    "subtitle": "Player gets a Second Chance",
+    "sounds": [
+      "secondchanceforge:classic_hurt"
+    ]
+  }
+}

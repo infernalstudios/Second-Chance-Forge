@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.helliongames.secondchanceforge.mixin",
+  "package": "com.infernalstudios.secondchanceforge.mixin",
   "refmap": "second-chance-forge.refmap.json",
   "compatibilityLevel": "JAVA_8",
   "injectors": {

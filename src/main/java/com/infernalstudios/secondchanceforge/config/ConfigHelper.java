@@ -1,6 +1,6 @@
-package com.helliongames.secondchanceforge.config;
+package com.infernalstudios.secondchanceforge.config;
 
-import com.helliongames.secondchanceforge.config.SecondChanceConfig.FeatureConfig;
+import com.infernalstudios.secondchanceforge.config.SecondChanceConfig.FeatureConfig;
 
 import net.minecraftforge.fml.config.ModConfig;
 

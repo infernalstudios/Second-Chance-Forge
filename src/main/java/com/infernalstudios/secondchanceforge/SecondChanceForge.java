@@ -1,7 +1,7 @@
-package com.helliongames.secondchanceforge;
+package com.infernalstudios.secondchanceforge;
 
-import com.helliongames.secondchanceforge.config.ConfigHelper;
-import com.helliongames.secondchanceforge.config.ConfigHolder;
+import com.infernalstudios.secondchanceforge.config.ConfigHelper;
+import com.infernalstudios.secondchanceforge.config.ConfigHolder;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;

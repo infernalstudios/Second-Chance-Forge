@@ -17,7 +17,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 version = '1.0.0'
-group = 'com.nekomaster1000.secondchanceforge' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = 'com.infernalstudios.secondchanceforge' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'second-chance-forge'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
@@ -137,15 +137,15 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title": "examplemod",
-                "Specification-Vendor": "examplemodsareus",
+                "Specification-Title": "Second Chance Forge",
+                "Specification-Vendor": "Infernal Studios",
                 "Specification-Version": "1", // We are version 1 of ourselves
                 "Implementation-Title": project.name,
                 "Implementation-Version": "${version}",
-                "Implementation-Vendor" :"examplemodsareus",
+                "Implementation-Vendor" :"Infernal Studios",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
                 "MixinConfigs": "second-chance-forge.mixins.json",
-                "MixinConnector": "com.helliongames.secondchanceforge.mixin.MixinConnector"
+                "MixinConnector": "com.infernalstudios.secondchanceforge.mixin.MixinConnector"
         ])
     }
 }

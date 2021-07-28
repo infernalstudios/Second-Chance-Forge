@@ -1,13 +1,12 @@
-package com.helliongames.secondchanceforge;
+package com.infernalstudios.secondchanceforge;
 
-import com.helliongames.secondchanceforge.config.ConfigHelper;
-import com.helliongames.secondchanceforge.config.ConfigHolder;
-import com.helliongames.secondchanceforge.config.SecondChanceConfig;
+import com.infernalstudios.secondchanceforge.config.ConfigHelper;
+import com.infernalstudios.secondchanceforge.config.ConfigHolder;
+import com.infernalstudios.secondchanceforge.config.SecondChanceConfig;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
-import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

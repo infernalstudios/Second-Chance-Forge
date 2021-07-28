@@ -1,4 +1,4 @@
-package com.helliongames.secondchanceforge;
+package com.infernalstudios.secondchanceforge;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;

@@ -1,4 +1,4 @@
-package com.helliongames.secondchanceforge.config;
+package com.infernalstudios.secondchanceforge.config;
 
 public class SecondChanceConfig {
     //COMMON

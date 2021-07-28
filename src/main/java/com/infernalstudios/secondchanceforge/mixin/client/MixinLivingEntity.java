@@ -1,6 +1,6 @@
-package com.helliongames.secondchanceforge.mixin.client;
+package com.infernalstudios.secondchanceforge.mixin.client;
 
-import com.helliongames.secondchanceforge.config.SecondChanceConfig;
+import com.infernalstudios.secondchanceforge.config.SecondChanceConfig;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;

@@ -1,6 +1,6 @@
-package com.helliongames.secondchanceforge.config;
+package com.infernalstudios.secondchanceforge.config;
 
-import com.helliongames.secondchanceforge.SecondChanceForge;
+import com.infernalstudios.secondchanceforge.SecondChanceForge;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class CommonConfig {

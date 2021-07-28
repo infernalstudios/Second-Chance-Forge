@@ -1,4 +1,4 @@
-package com.helliongames.secondchanceforge.mixin;
+package com.infernalstudios.secondchanceforge.mixin;
 
 import org.spongepowered.asm.mixin.Mixins;
 import org.spongepowered.asm.mixin.connect.IMixinConnector;

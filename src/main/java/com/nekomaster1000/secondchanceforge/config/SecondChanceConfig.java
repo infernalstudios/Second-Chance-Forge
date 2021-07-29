@@ -24,18 +24,18 @@ public class SecondChanceConfig {
 
     public SecondChanceConfig(Builder builder) {
         coyoteTimeEnabled = builder
-                .comment("Determines if the 'Coyote Time' feature is enabled")
-                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.coyoteTimeEnabled")
+                .comment("Determines if the 'Coyote Time' feature is enabled\n" +
+                        "'Coyote Time' allows the player to jump for a second or two after falling off of a block in order to stop themselves from falling into a pit\n" +
+                        "This will not allow the player to double jump, only jump when walking off of a block")
                 .define("coyoteTimeEnabled", true);
 
         secondChanceEnabled = builder
-                .comment("Determines if the 'Second Chance' feature is enabled")
-                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceEnabled")
+                .comment("Determines if the 'Second Chance' feature is enabled\n" +
+                        "'Second Chance' leaves the player at half a heart after taking fatal damage from a mob or explosion while at or above 7 hearts")
                 .define("secondChanceEnabled", true);
 
         secondChanceSound = builder
                 .comment("Determines if the 'Second Chance' sound will play when the effect is activated")
-                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceSound")
                 .define("secondChanceSound", true);
     }
 }

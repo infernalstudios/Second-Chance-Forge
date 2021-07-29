@@ -43,7 +43,7 @@ public abstract class MixinLivingEntity extends Entity {
 
     @Inject(method = "livingTick", at = @At(target = "Lnet/minecraft/entity/LivingEntity;getFluidJumpHeight()D", value = "INVOKE", shift = At.Shift.AFTER))
     private void SCF_coyoteTimeJump(CallbackInfo ci) {
-        if (SecondChanceConfig.CONFIG.coyoteTimeEnabled.get() && this.ticksFalling <= 10 && !this.hasJumped) {
+        if (SecondChanceConfig.CONFIG.coyoteTimeEnabled.get() && this.ticksFalling <= SecondChanceConfig.CONFIG.coyoteTimeTicks.get() && !this.hasJumped) {
             this.jump();
             this.jumpTicks = 10;
         }

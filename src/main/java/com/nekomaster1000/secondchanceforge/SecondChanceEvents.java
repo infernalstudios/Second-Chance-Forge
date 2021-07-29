@@ -22,11 +22,11 @@ public class SecondChanceEvents {
 
         if (entity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) entity;
-            if (SecondChanceConfig.CONFIG.secondChanceEnabled.get() && (source.isExplosion() || source.getDamageType().equals("mob")) && player.getHealth() <= event.getAmount() && player.getHealth() >= 13.5F) {
+            if (SecondChanceConfig.CONFIG.secondChanceEnabled.get() && (source.isExplosion() || source.getDamageType().equals("mob")) && player.getHealth() <= event.getAmount() && player.getHealth() >= SecondChanceConfig.CONFIG.secondChanceActivationHealth.get()) {
                 if (SecondChanceConfig.CONFIG.secondChanceSound.get()) {
                     player.getEntityWorld().playSound(null, player.getPosX(), player.getPosY(), player.getPosZ(), SecondChanceSoundEvents.CLASSIC_HURT.get(), SoundCategory.PLAYERS, 2.0F, 1.0F);
                 }
-                event.setAmount(player.getHealth() - 1.0F);
+                event.setAmount((float)(player.getHealth() - SecondChanceConfig.CONFIG.secondChanceHealthRemainder.get()));
             }
         }
     }

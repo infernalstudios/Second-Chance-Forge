@@ -21,6 +21,9 @@ public class SecondChanceConfig {
     public final ForgeConfigSpec.BooleanValue coyoteTimeEnabled;
     public final ForgeConfigSpec.BooleanValue secondChanceEnabled;
     public final ForgeConfigSpec.BooleanValue secondChanceSound;
+    public final ForgeConfigSpec.IntValue coyoteTimeTicks;
+    public final ForgeConfigSpec.DoubleValue secondChanceActivationHealth;
+    public final ForgeConfigSpec.DoubleValue secondChanceHealthRemainder;
 
     public SecondChanceConfig(Builder builder) {
         coyoteTimeEnabled = builder
@@ -28,6 +31,10 @@ public class SecondChanceConfig {
                         "'Coyote Time' allows the player to jump for a second or two after falling off of a block in order to stop themselves from falling into a pit\n" +
                         "This will not allow the player to double jump, only jump when walking off of a block")
                 .define("coyoteTimeEnabled", true);
+
+        coyoteTimeTicks = builder
+                .comment("Determines how long (in ticks) the player has to jump with 'Coyote Time' after falling off a block")
+                .defineInRange("coyoteTimeTicks", 10, 1, Integer.MAX_VALUE);
 
         secondChanceEnabled = builder
                 .comment("Determines if the 'Second Chance' feature is enabled\n" +
@@ -37,5 +44,13 @@ public class SecondChanceConfig {
         secondChanceSound = builder
                 .comment("Determines if the 'Second Chance' sound will play when the effect is activated")
                 .define("secondChanceSound", true);
+
+        secondChanceActivationHealth = builder
+                .comment("Determines how much health the player must start with for 'Second Chance' to activate")
+                .defineInRange("secondChanceActivationHealth", 13.5D, 0.5D, 20.0D);
+
+        secondChanceHealthRemainder = builder
+                .comment("Determines how much health the player should be left with after 'Second Chance' activates")
+                .defineInRange("secondChanceHealthRemainder", 1.0D, 0.5D, 20.0D);
     }
 }

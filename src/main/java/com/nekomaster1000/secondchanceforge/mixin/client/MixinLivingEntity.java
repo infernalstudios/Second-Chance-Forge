@@ -1,15 +1,17 @@
-package com.helliongames.secondchanceforge.mixin.client;
+package com.nekomaster1000.secondchanceforge.mixin.client;
 
-import com.helliongames.secondchanceforge.config.SecondChanceConfig;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.world.World;
+import com.nekomaster1000.secondchanceforge.config.SecondChanceConfig;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.world.World;
 
 @Mixin(LivingEntity.class)
 public abstract class MixinLivingEntity extends Entity {
@@ -41,8 +43,8 @@ public abstract class MixinLivingEntity extends Entity {
 
     @Inject(method = "livingTick", at = @At(target = "Lnet/minecraft/entity/LivingEntity;getFluidJumpHeight()D", value = "INVOKE", shift = At.Shift.AFTER))
     private void SCF_coyoteTimeJump(CallbackInfo ci) {
-        if (SecondChanceConfig.FeatureConfig.COYOTE_TIME_ENABLED.getBoolean() && this.ticksFalling <= 10 && !this.hasJumped) {
-            jump();
+        if (SecondChanceConfig.CONFIG.coyoteTimeEnabled.get() && this.ticksFalling <= 10 && !this.hasJumped) {
+            this.jump();
             this.jumpTicks = 10;
         }
     }

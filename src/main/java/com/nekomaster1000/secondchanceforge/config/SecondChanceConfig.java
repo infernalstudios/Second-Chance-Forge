@@ -20,6 +20,7 @@ public class SecondChanceConfig {
 
     public final ForgeConfigSpec.BooleanValue coyoteTimeEnabled;
     public final ForgeConfigSpec.BooleanValue secondChanceEnabled;
+    public final ForgeConfigSpec.BooleanValue secondChanceSound;
 
     public SecondChanceConfig(Builder builder) {
         coyoteTimeEnabled = builder
@@ -31,5 +32,10 @@ public class SecondChanceConfig {
                 .comment("Determines if the 'Second Chance' feature is enabled")
                 .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceEnabled")
                 .define("secondChanceEnabled", true);
+
+        secondChanceSound = builder
+                .comment("Determines if the 'Second Chance' sound will play when the effect is activated")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceSound")
+                .define("secondChanceSound", true);
     }
 }

@@ -5,12 +5,16 @@ import com.nekomaster1000.secondchanceforge.SecondChanceForge;
 import com.nekomaster1000.secondchanceforge.config.SecondChanceConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.screen.SettingsScreen;
 import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.widget.list.OptionsRowList;
 import net.minecraft.client.settings.BooleanOption;
 import net.minecraft.client.settings.SliderPercentageOption;
+import net.minecraft.util.IReorderingProcessor;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
+
+import java.util.List;
 
 public class ConfigScreen extends Screen {
 
@@ -91,6 +95,11 @@ public class ConfigScreen extends Screen {
 		renderBackground(matrixStack);
 
 		optionsRowList.render(matrixStack, mouseX, mouseY, partialTicks);
+
+		List<IReorderingProcessor> list = SettingsScreen.func_243293_a(optionsRowList, mouseX, mouseY);
+		if (list != null) {
+			this.renderTooltip(matrixStack, list, mouseX, mouseY);
+		}
 
 		// The parameter names for this function are wrong. The three integers at the end should be x, y, color
 		drawCenteredString(matrixStack, font, title, width / 2, 8, 0xFFFFFF);

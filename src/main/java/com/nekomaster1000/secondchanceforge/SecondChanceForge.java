@@ -2,6 +2,8 @@ package com.nekomaster1000.secondchanceforge;
 
 import com.nekomaster1000.secondchanceforge.config.SecondChanceConfig;
 
+import com.nekomaster1000.secondchanceforge.config.gui.ConfigScreen;
+import net.minecraftforge.fml.ExtensionPoint;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -26,7 +28,10 @@ public class SecondChanceForge {
 
         SecondChanceSoundEvents.register(modEventBus);
 
-        //Registering Configs
+        // Registering Configs
         modLoadingContext.registerConfig(ModConfig.Type.COMMON, SecondChanceConfig.CONFIG_SPEC);
+
+        // Registering Config GUI Extension Point
+        modLoadingContext.registerExtensionPoint(ExtensionPoint.CONFIGGUIFACTORY, () -> (mc, screen) -> new ConfigScreen());
     }
 }

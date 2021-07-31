@@ -3,7 +3,11 @@ package com.nekomaster1000.secondchanceforge;
 import com.nekomaster1000.secondchanceforge.config.SecondChanceConfig;
 
 import com.nekomaster1000.secondchanceforge.config.gui.ConfigScreen;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ExtensionPoint;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -23,6 +27,8 @@ public class SecondChanceForge {
         final ModLoadingContext modLoadingContext = ModLoadingContext.get();
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        modEventBus.addListener(this::clientSetup);
+
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new SecondChanceEvents());
 
@@ -30,8 +36,9 @@ public class SecondChanceForge {
 
         // Registering Configs
         modLoadingContext.registerConfig(ModConfig.Type.COMMON, SecondChanceConfig.CONFIG_SPEC);
+    }
 
-        // Registering Config GUI Extension Point
-        modLoadingContext.registerExtensionPoint(ExtensionPoint.CONFIGGUIFACTORY, () -> (mc, screen) -> new ConfigScreen());
+    private void clientSetup(final FMLClientSetupEvent event) {
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> SecondChanceClient::init);
     }
 }

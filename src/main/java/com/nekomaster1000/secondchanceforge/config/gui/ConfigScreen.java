@@ -13,9 +13,12 @@ import net.minecraft.client.settings.SliderPercentageOption;
 import net.minecraft.util.IReorderingProcessor;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 
+@OnlyIn(Dist.CLIENT)
 public class ConfigScreen extends Screen {
 
 	private OptionsRowList optionsRowList;

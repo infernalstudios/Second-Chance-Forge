@@ -1,0 +1,28 @@
+// Russian lang added by DrHesperus
+{
+  "secondchanceforge.config.title": "Конфигурация Second Chance",
+
+  "secondchanceforge.config.option.coyoteTimeEnabled": "Время койота",
+  "secondchanceforge.config.tooltip.coyoteTimeEnabled": "Определяет, будет ли функция 'Время койота' включена.\n 'Время койота' позволяет игроку прыгать на секунду или 2 после падения с блока, чтобы самостоятельно не упасть в яму.\n Это не позволит игроку прыгать дважды, а только прыгать при ухода с блока.",
+
+  "secondchanceforge.config.option.coyoteTimeTicks": "Время койота: Тики",
+  "secondchanceforge.config.tooltip.coyoteTimeTicks": "Определяет, как долго (в тиках) игрок имеет прыжок с 'Время койота' после падения с блока.",
+
+  "secondchanceforge.config.option.secondChanceEnabled": "Второй шанс",
+  "secondchanceforge.config.tooltip.secondChanceEnabled": "Определяет, будет ли функция 'Второй шанс' включена.\n 'Второй шанс' покидает игрока на половине сердца после получения смертельного урона от моба или взрыва при 7 или более сердец.",
+
+  "secondchanceforge.config.option.secondChanceSound": "Второй шанс: Звук",
+  "secondchanceforge.config.tooltip.secondChanceSound": "Определяет, будет ли звук 'Второй шанс' воспроизводиться, когда эффект активирован.",
+
+  "secondchanceforge.config.option.secondChanceExplosions": "Второй шанс: Взрывы",
+  "secondchanceforge.config.tooltip.secondChanceExplosions": "Определяет, будет ли функция 'Второй шанс' активирована взрывами.",
+
+  "secondchanceforge.config.option.secondChanceMobs": "Второй шанс: Мобы",
+  "secondchanceforge.config.tooltip.secondChanceMobs": "Определяет, будет ли функция 'Второй шанс' активирована мобами.",
+
+  "secondchanceforge.config.option.secondChanceActivationHealth": "Второй шанс: Активация здоровья",
+  "secondchanceforge.config.tooltip.secondChanceActivationHealth": "Определяет, со скольким здоровьем игрок может начать игру, чтобы активировать 'Второй шанс'.",
+
+  "secondchanceforge.config.option.secondChanceHealthRemainder": "Второй шанс: Остаток здоровья",
+  "secondchanceforge.config.tooltip.secondChanceHealthRemainder": "Определяет, сколько здоровья должно оставаться у игрока после активации 'Второго шанса'."
+}

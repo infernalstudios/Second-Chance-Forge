@@ -14,7 +14,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.1.0'
+version = '1.2.0'
 group = 'com.nekomaster1000.secondchanceforge'
 archivesBaseName = 'secondchanceforge'
 

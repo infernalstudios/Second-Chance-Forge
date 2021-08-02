@@ -13,6 +13,12 @@
   "secondchanceforge.config.option.secondChanceSound": "Second Chance Sound",
   "secondchanceforge.config.tooltip.secondChanceSound": "Determines if the 'Second Chance' sound will play when the effect is activated.",
 
+  "secondchanceforge.config.option.secondChanceExplosions": "Second Chance Explosions",
+  "secondchanceforge.config.tooltip.secondChanceExplosions": "Determines if the 'Second Chance' feature will be activated by explosions.",
+
+  "secondchanceforge.config.option.secondChanceMobs": "Second Chance Mobs",
+  "secondchanceforge.config.tooltip.secondChanceMobs": "Determines if the 'Second Chance' feature will be activated by mobs.",
+
   "secondchanceforge.config.option.secondChanceActivationHealth": "Second Chance Activation Health",
   "secondchanceforge.config.tooltip.secondChanceActivationHealth": "Determines how much health the player must start with for 'Second Chance' to activate.",
 

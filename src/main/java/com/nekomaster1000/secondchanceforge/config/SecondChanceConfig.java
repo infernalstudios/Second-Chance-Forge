@@ -1,11 +1,9 @@
 package com.nekomaster1000.secondchanceforge.config;
 
 import com.nekomaster1000.secondchanceforge.SecondChanceForge;
-
-import org.apache.commons.lang3.tuple.Pair;
-
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.Builder;
+import org.apache.commons.lang3.tuple.Pair;
 
 public class SecondChanceConfig {
     public static final ForgeConfigSpec CONFIG_SPEC;
@@ -21,6 +19,8 @@ public class SecondChanceConfig {
     public final ForgeConfigSpec.BooleanValue coyoteTimeEnabled;
     public final ForgeConfigSpec.BooleanValue secondChanceEnabled;
     public final ForgeConfigSpec.BooleanValue secondChanceSound;
+    public final ForgeConfigSpec.BooleanValue secondChanceExplosions;
+    public final ForgeConfigSpec.BooleanValue secondChanceMobs;
     public final ForgeConfigSpec.IntValue coyoteTimeTicks;
     public final ForgeConfigSpec.DoubleValue secondChanceActivationHealth;
     public final ForgeConfigSpec.DoubleValue secondChanceHealthRemainder;
@@ -49,6 +49,16 @@ public class SecondChanceConfig {
                 .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceSound")
                 .define("secondChanceSound", true);
 
+        secondChanceExplosions = builder
+                .comment("Determines if the 'Second Chance' feature will be activated by explosions.")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceExplosions")
+                .define("secondChanceExplosions", true);
+
+        secondChanceMobs = builder
+                .comment("Determines if the 'Second Chance' feature will be activated by mobs.")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceMobs")
+                .define("secondChanceMobs", true);
+
         secondChanceActivationHealth = builder
                 .comment("Determines how much health the player must start with for 'Second Chance' to activate.")
                 .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceActivationHealth")
@@ -57,6 +67,6 @@ public class SecondChanceConfig {
         secondChanceHealthRemainder = builder
                 .comment("Determines how much health the player should be left with after 'Second Chance' activates.")
                 .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceHealthRemainder")
-                .defineInRange("secondChanceHealthRemainder", 1.0D, 0.5D, 20.0D);
+                .defineInRange("secondChanceHealthRemainder", 1.0D, 1.0D, 20.0D);
     }
 }

@@ -62,6 +62,18 @@ public class ConfigScreen extends Screen {
 				settings -> SecondChanceConfig.CONFIG.secondChanceSound.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceSound.set(value)
 		));
 
+        // Second Chance Explosions
+        optionsRowList.addOption(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceExplosions",
+                new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceExplosions"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceExplosions.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceExplosions.set(value)
+        ));
+
+        // Second Chance Mobs
+        optionsRowList.addOption(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceMobs",
+                new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceMobs"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceMobs.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceMobs.set(value)
+        ));
+
 		// Second Chance Activation Health
 		optionsRowList.addOption(new SliderPercentageOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceActivationHealth", 0.5D, 20.0D, 0.5F,
 						settings -> SecondChanceConfig.CONFIG.secondChanceActivationHealth.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceActivationHealth.set(value),

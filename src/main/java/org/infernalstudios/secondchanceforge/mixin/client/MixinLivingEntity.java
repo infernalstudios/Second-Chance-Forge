@@ -1,6 +1,6 @@
-package com.nekomaster1000.secondchanceforge.mixin.client;
+package org.infernalstudios.secondchanceforge.mixin.client;
 
-import com.nekomaster1000.secondchanceforge.config.SecondChanceConfig;
+import org.infernalstudios.secondchanceforge.config.SecondChanceConfig;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;

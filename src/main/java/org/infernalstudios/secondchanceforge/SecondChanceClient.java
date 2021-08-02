@@ -1,6 +1,6 @@
-package com.nekomaster1000.secondchanceforge;
+package org.infernalstudios.secondchanceforge;
 
-import com.nekomaster1000.secondchanceforge.config.gui.ConfigScreen;
+import org.infernalstudios.secondchanceforge.config.gui.ConfigScreen;
 import net.minecraftforge.fml.ExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 

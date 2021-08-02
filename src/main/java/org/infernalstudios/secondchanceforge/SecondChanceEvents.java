@@ -1,6 +1,6 @@
-package com.nekomaster1000.secondchanceforge;
+package org.infernalstudios.secondchanceforge;
 
-import com.nekomaster1000.secondchanceforge.config.SecondChanceConfig;
+import org.infernalstudios.secondchanceforge.config.SecondChanceConfig;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.DamageSource;

@@ -1,8 +1,8 @@
-package com.nekomaster1000.secondchanceforge.config.gui;
+package org.infernalstudios.secondchanceforge.config.gui;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.nekomaster1000.secondchanceforge.SecondChanceForge;
-import com.nekomaster1000.secondchanceforge.config.SecondChanceConfig;
+import org.infernalstudios.secondchanceforge.SecondChanceForge;
+import org.infernalstudios.secondchanceforge.config.SecondChanceConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.SettingsScreen;

@@ -1,4 +1,4 @@
-package com.nekomaster1000.secondchanceforge;
+package org.infernalstudios.secondchanceforge;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;

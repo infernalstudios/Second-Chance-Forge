@@ -1,6 +1,6 @@
-package com.nekomaster1000.secondchanceforge;
+package org.infernalstudios.secondchanceforge;
 
-import com.nekomaster1000.secondchanceforge.config.SecondChanceConfig;
+import org.infernalstudios.secondchanceforge.config.SecondChanceConfig;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;

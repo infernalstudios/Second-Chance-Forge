@@ -1,13 +1,13 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.nekomaster1000.secondchanceforge.mixin",
+  "package": "org.infernalstudios.secondchanceforge.mixin",
   "refmap": "secondchanceforge.refmap.json",
   "compatibilityLevel": "JAVA_8",
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
-    "client.MixinLivingEntity"
+    "org.infernalstudios.secondchanceforge.mixin.client.MixinLivingEntity"
   ]
 }

@@ -1,6 +1,6 @@
-package com.nekomaster1000.secondchanceforge.config;
+package org.infernalstudios.secondchanceforge.config;
 
-import com.nekomaster1000.secondchanceforge.SecondChanceForge;
+import org.infernalstudios.secondchanceforge.SecondChanceForge;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.Builder;
 import org.apache.commons.lang3.tuple.Pair;

@@ -1,4 +1,4 @@
-package com.nekomaster1000.secondchanceforge.mixin;
+package org.infernalstudios.secondchanceforge.mixin;
 
 import org.spongepowered.asm.mixin.Mixins;
 import org.spongepowered.asm.mixin.connect.IMixinConnector;

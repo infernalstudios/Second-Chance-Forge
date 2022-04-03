@@ -72,7 +72,7 @@ public class ConfigScreen extends Screen {
         ));
 
 		// Second Chance Activation Health
-		optionsRowList.addBig(new ProgressOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceActivationHealth", 0.5D, 20.0D, 0.5F,
+		optionsRowList.addBig(new ProgressOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceActivationHealth", 0.5D, 100.0D, 0.5F,
                 settings -> SecondChanceConfig.CONFIG.secondChanceActivationHealth.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceActivationHealth.set(value),
                 (settings, option) -> new TranslatableComponent("options.generic_value", option.getCaption(), // getBaseMessageTranslation() is protected by default, use an access transformer to be able to use it
                         new TextComponent(Double.toString((double) Math.round(option.get(settings) * 100) / 100))),
@@ -82,7 +82,7 @@ public class ConfigScreen extends Screen {
         );
 
 		// Second Chance Activation Health
-		optionsRowList.addBig(new ProgressOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceHealthRemainder", 0.5D, 20.0D, 0.5F,
+		optionsRowList.addBig(new ProgressOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceHealthRemainder", 0.5D, 100.0D, 0.5F,
                 settings -> SecondChanceConfig.CONFIG.secondChanceHealthRemainder.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceHealthRemainder.set(value),
                 (settings, option) -> new TranslatableComponent("options.generic_value", option.getCaption(), // getBaseMessageTranslation() is protected by default, use an access transformer to be able to use it
                         new TextComponent(Double.toString((double) Math.round(option.get(settings) * 100) / 100))),

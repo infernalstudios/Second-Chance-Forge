@@ -75,7 +75,7 @@ public class ConfigScreen extends Screen {
         ));
 
 		// Second Chance Activation Health
-		optionsRowList.addBig(new SliderPercentageOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceActivationHealth", 0.5D, 20.0D, 0.5F,
+		optionsRowList.addBig(new SliderPercentageOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceActivationHealth", 0.5D, 100.0D, 0.5F,
 						settings -> SecondChanceConfig.CONFIG.secondChanceActivationHealth.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceActivationHealth.set(value),
 						(settings, option) -> {
 							option.setTooltip(Minecraft.getInstance().font.split(
@@ -87,8 +87,8 @@ public class ConfigScreen extends Screen {
 				)
 		);
 
-		// Second Chance Activation Health
-		optionsRowList.addBig(new SliderPercentageOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceHealthRemainder", 0.5D, 20.0D, 0.5F,
+		// Second Chance Health Remainder
+		optionsRowList.addBig(new SliderPercentageOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceHealthRemainder", 0.5D, 100.0D, 0.5F,
 						settings -> SecondChanceConfig.CONFIG.secondChanceHealthRemainder.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceHealthRemainder.set(value),
 						(settings, option) -> {
 							option.setTooltip(Minecraft.getInstance().font.split(

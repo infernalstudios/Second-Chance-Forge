@@ -58,12 +58,12 @@ Special Thanks:
 [[dependencies.secondchanceforge]]
     modId="forge"
     mandatory=true
-    versionRange="[40,)"
+    versionRange="[38,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.secondchanceforge]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.8.2,)"
+    versionRange="[1.18,)"
     ordering="NONE"
     side="BOTH"

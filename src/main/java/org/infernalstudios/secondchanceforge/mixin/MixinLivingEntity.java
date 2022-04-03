@@ -33,7 +33,7 @@ public abstract class MixinLivingEntity extends Entity {
     private void SCF_countTicksFalling(CallbackInfo ci) {
         if (!this.onGround) {
             this.ticksFalling++;
-        } else {
+        } else if (!this.isInWater()) {
             this.ticksFalling = 0;
             this.hasJumped = false;
         }
@@ -41,7 +41,7 @@ public abstract class MixinLivingEntity extends Entity {
 
     @Inject(method = "aiStep", at = @At(target = "Lnet/minecraft/entity/LivingEntity;getFluidJumpThreshold()D", value = "INVOKE", shift = At.Shift.AFTER))
     private void SCF_coyoteTimeJump(CallbackInfo ci) {
-        if (SecondChanceConfig.CONFIG.coyoteTimeEnabled.get() && this.ticksFalling <= SecondChanceConfig.CONFIG.coyoteTimeTicks.get() && !this.hasJumped) {
+        if (SecondChanceConfig.CONFIG.coyoteTimeEnabled.get() && this.ticksFalling <= SecondChanceConfig.CONFIG.coyoteTimeTicks.get() && !this.hasJumped && !this.isInWater()) {
             this.jumpFromGround();
             this.noJumpDelay = 10;
         }

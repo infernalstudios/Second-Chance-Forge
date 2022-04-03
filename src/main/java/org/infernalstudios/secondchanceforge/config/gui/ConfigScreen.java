@@ -32,69 +32,69 @@ public class ConfigScreen extends Screen {
 		optionsRowList = new OptionsRowList(minecraft, width, height, 24, height - 32, 25);
 
 		// Coyote Time Enabled
-		optionsRowList.addOption(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.coyoteTimeEnabled",
+		optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.coyoteTimeEnabled",
 				new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.coyoteTimeEnabled"),
 				settings -> SecondChanceConfig.CONFIG.coyoteTimeEnabled.get(), (settings, value) -> SecondChanceConfig.CONFIG.coyoteTimeEnabled.set(value)
 		));
 
 		// Coyote Time Ticks
-		optionsRowList.addOption(new SliderPercentageOption(SecondChanceForge.MOD_ID + ".config.option.coyoteTimeTicks", 1, 100, 1,
+		optionsRowList.addBig(new SliderPercentageOption(SecondChanceForge.MOD_ID + ".config.option.coyoteTimeTicks", 1, 100, 1,
 				settings -> SecondChanceConfig.CONFIG.coyoteTimeTicks.get().doubleValue(), (settings, value) -> SecondChanceConfig.CONFIG.coyoteTimeTicks.set(value.intValue()),
 				(settings, option) -> {
-					option.setOptionValues(Minecraft.getInstance().fontRenderer.trimStringToWidth(
+					option.setTooltip(Minecraft.getInstance().font.split(
 							new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.coyoteTimeTicks"), 200));
 
-					return new TranslationTextComponent("options.generic_value", option.getBaseMessageTranslation(), // getBaseMessageTranslation() is protected by default, use an access transformer to be able to use it
+					return new TranslationTextComponent("options.generic_value", option.getCaption(), // getBaseMessageTranslation() is protected by default, use an access transformer to be able to use it
 							new StringTextComponent(Double.toString((double) Math.round(option.get(settings) * 100) / 100)));
 				}
 			)
 		);
 
 		// Second Chance Enabled
-		optionsRowList.addOption(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceEnabled",
+		optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceEnabled",
 				new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceEnabled"),
 				settings -> SecondChanceConfig.CONFIG.secondChanceEnabled.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceEnabled.set(value)
 		));
 
 		// Second Chance Sound
-		optionsRowList.addOption(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceSound",
+		optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceSound",
 				new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceSound"),
 				settings -> SecondChanceConfig.CONFIG.secondChanceSound.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceSound.set(value)
 		));
 
         // Second Chance Explosions
-        optionsRowList.addOption(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceExplosions",
+        optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceExplosions",
                 new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceExplosions"),
                 settings -> SecondChanceConfig.CONFIG.secondChanceExplosions.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceExplosions.set(value)
         ));
 
         // Second Chance Mobs
-        optionsRowList.addOption(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceMobs",
+        optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceMobs",
                 new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceMobs"),
                 settings -> SecondChanceConfig.CONFIG.secondChanceMobs.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceMobs.set(value)
         ));
 
 		// Second Chance Activation Health
-		optionsRowList.addOption(new SliderPercentageOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceActivationHealth", 0.5D, 20.0D, 0.5F,
+		optionsRowList.addBig(new SliderPercentageOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceActivationHealth", 0.5D, 20.0D, 0.5F,
 						settings -> SecondChanceConfig.CONFIG.secondChanceActivationHealth.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceActivationHealth.set(value),
 						(settings, option) -> {
-							option.setOptionValues(Minecraft.getInstance().fontRenderer.trimStringToWidth(
+							option.setTooltip(Minecraft.getInstance().font.split(
 									new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceActivationHealth"), 200));
 
-							return new TranslationTextComponent("options.generic_value", option.getBaseMessageTranslation(), // getBaseMessageTranslation() is protected by default, use an access transformer to be able to use it
+							return new TranslationTextComponent("options.generic_value", option.getCaption(), // getBaseMessageTranslation() is protected by default, use an access transformer to be able to use it
 									new StringTextComponent(Double.toString((double) Math.round(option.get(settings) * 100) / 100)));
 						}
 				)
 		);
 
 		// Second Chance Activation Health
-		optionsRowList.addOption(new SliderPercentageOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceHealthRemainder", 0.5D, 20.0D, 0.5F,
+		optionsRowList.addBig(new SliderPercentageOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceHealthRemainder", 0.5D, 20.0D, 0.5F,
 						settings -> SecondChanceConfig.CONFIG.secondChanceHealthRemainder.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceHealthRemainder.set(value),
 						(settings, option) -> {
-							option.setOptionValues(Minecraft.getInstance().fontRenderer.trimStringToWidth(
+							option.setTooltip(Minecraft.getInstance().font.split(
 									new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceHealthRemainder"), 200));
 
-							return new TranslationTextComponent("options.generic_value", option.getBaseMessageTranslation(), // getBaseMessageTranslation() is protected by default, use an access transformer to be able to use it
+							return new TranslationTextComponent("options.generic_value", option.getCaption(), // getBaseMessageTranslation() is protected by default, use an access transformer to be able to use it
 									new StringTextComponent(Double.toString((double) Math.round(option.get(settings) * 100) / 100)));
 						}
 				)
@@ -102,7 +102,7 @@ public class ConfigScreen extends Screen {
 
 		children.add(optionsRowList);
 
-		addButton(new Button((width - 200) / 2, height - 26, 200, 20, new TranslationTextComponent("gui.done"), button -> closeScreen()));
+		addButton(new Button((width - 200) / 2, height - 26, 200, 20, new TranslationTextComponent("gui.done"), button -> onClose()));
 	}
 
 	@Override
@@ -111,7 +111,7 @@ public class ConfigScreen extends Screen {
 
 		optionsRowList.render(matrixStack, mouseX, mouseY, partialTicks);
 
-		List<IReorderingProcessor> list = SettingsScreen.func_243293_a(optionsRowList, mouseX, mouseY);
+		List<IReorderingProcessor> list = SettingsScreen.tooltipAt(optionsRowList, mouseX, mouseY);
 		if (list != null) {
 			this.renderTooltip(matrixStack, list, mouseX, mouseY);
 		}

@@ -1,4 +1,4 @@
-package org.infernalstudios.secondchanceforge.mixin.client;
+package org.infernalstudios.secondchanceforge.mixin;
 
 import org.infernalstudios.secondchanceforge.config.SecondChanceConfig;
 import net.minecraft.entity.Entity;
@@ -13,9 +13,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LivingEntity.class)
 public abstract class MixinLivingEntity extends Entity {
-    @Shadow private int jumpTicks;
+    @Shadow private int noJumpDelay;
 
-    @Shadow protected abstract void jump();
+    @Shadow protected abstract void jumpFromGround();
 
     private int ticksFalling = 0;
     private boolean hasJumped = false;
@@ -24,12 +24,12 @@ public abstract class MixinLivingEntity extends Entity {
         super(entityTypeIn, worldIn);
     }
 
-    @Inject(method = "jump", at = @At(value = "HEAD"))
+    @Inject(method = "jumpFromGround", at = @At(value = "HEAD"))
     private void SCF_setHasJumped(CallbackInfo ci) {
         this.hasJumped = true;
     }
 
-    @Inject(method = "livingTick", at = @At(value = "HEAD"))
+    @Inject(method = "aiStep", at = @At(value = "HEAD"))
     private void SCF_countTicksFalling(CallbackInfo ci) {
         if (!this.onGround) {
             this.ticksFalling++;
@@ -39,11 +39,11 @@ public abstract class MixinLivingEntity extends Entity {
         }
     }
 
-    @Inject(method = "livingTick", at = @At(target = "Lnet/minecraft/entity/LivingEntity;getFluidJumpHeight()D", value = "INVOKE", shift = At.Shift.AFTER))
+    @Inject(method = "aiStep", at = @At(target = "Lnet/minecraft/entity/LivingEntity;getFluidJumpThreshold()D", value = "INVOKE", shift = At.Shift.AFTER))
     private void SCF_coyoteTimeJump(CallbackInfo ci) {
         if (SecondChanceConfig.CONFIG.coyoteTimeEnabled.get() && this.ticksFalling <= SecondChanceConfig.CONFIG.coyoteTimeTicks.get() && !this.hasJumped) {
-            this.jump();
-            this.jumpTicks = 10;
+            this.jumpFromGround();
+            this.noJumpDelay = 10;
         }
     }
 }

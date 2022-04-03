@@ -1,59 +1,44 @@
 buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net' }
+        maven { url = 'https://plugins.gradle.org/m2/' }
         maven { url = 'https://repo.spongepowered.org/maven/' }
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+        classpath group: 'net.minecraftforge.gradle',           name: 'ForgeGradle', version: '5.1+', changing: true
+        classpath group: 'org.spongepowered',                   name: 'mixingradle', version: '0.7-SNAPSHOT'
+        classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur',    version: '1.2.1'
+        classpath group: 'gradle.plugin.com.matthewprenger',    name: 'CurseGradle', version: '1.4.0'
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
+apply plugin: 'com.matthewprenger.cursegradle'
 
-version = '1.2.0'
-group = 'org.infernalstudios.secondchanceforge'
-archivesBaseName = 'secondchanceforge'
+// This initializes the config. Please try to modify the variables in the config file, if needed, add more if you see a reason to.
+ext.config = parseConfig(file('build.properties'))
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+version = config.VERSION
+group = "${config.GROUP}.${config.ARTIFACT}"
+archivesBaseName = "${config.ARCHIVES_BASE_NAME}-${config.MINECRAFT_VERSION}"
 
-mixin {
-    add sourceSets.main, "secondchanceforge.refmap.json"
-}
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 minecraft {
-    // The mappings can be changed at any time, and must be in the following format.
-    // Channel:   Version:
-    // snapshot   YYYYMMDD   Snapshot are built nightly.
-    // stable     #          Stables are built at the discretion of the MCP team.
-    // official   MCVersion  Official field/method names from Mojang mapping files
-    //
-    // You must be aware of the Mojang license when using the 'official' mappings.
-    // See more information here: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md
-    //
-    // Use non-default mappings at your own risk. they may not always work.
-    // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'snapshot', version: '20210309-1.16.5'
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+    mappings channel: config.MAPPINGS_CHANNEL, version: config.MAPPINGS_VERSION
 
-     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
-    // Default run configurations.
-    // These can be tweaked, removed, or duplicated as needed.
     runs {
         client {
             workingDirectory project.file('run')
-            arg "-mixin.config=secondchanceforge.mixins.json"
-
-            // Recommended logging data for a userdev environment
+            arg '-mixin.config=secondchanceforge.mixins.json'
             property 'forge.logging.markers', 'SCAN'
-
-            // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
-
             mods {
                 secondchanceforge {
                     source sourceSets.main
@@ -63,14 +48,9 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-            arg "-mixin.config=secondchanceforge.mixins.json"
-
-            // Recommended logging data for a userdev environment
+            arg '-mixin.config=secondchanceforge.mixins.json'
             property 'forge.logging.markers', 'SCAN'
-
-            // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
-
             mods {
                 secondchanceforge {
                     source sourceSets.main
@@ -80,15 +60,9 @@ minecraft {
 
         data {
             workingDirectory project.file('run')
-
-            // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN'
-
-            // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
-
             args '--mod', 'secondchanceforge', '--all', '--output', file('src/generated/resources/')
-
             mods {
                 secondchanceforge {
                     source sourceSets.main
@@ -98,30 +72,147 @@ minecraft {
     }
 }
 
+mixin {
+    add sourceSets.main, 'secondchanceforge.refmap.json'
+}
+
 repositories {
     maven { url = 'https://repo.spongepowered.org/maven/' }
+
     jcenter()
     mavenCentral()
 }
+
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.2.0'
-    compile 'org.spongepowered:mixin:0.8.3'
+    minecraft "net.minecraftforge:forge:${config.MINECRAFT_VERSION}-${config.FORGE_VERSION}"
+    annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
+}
+
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+processResources {
+    doLast {
+        fileTree(dir: outputs.files.asPath, include: ['**/*.json', '**/*.mcmeta']).each {
+            try {
+                it.text = JsonOutput.toJson(new JsonSlurper().parse(it))
+            } catch (Exception e) {
+                project.logger.error("Failed to minify file '${it.path}'.")
+                throw e
+            }
+        }
+    }
 }
 
 jar {
     manifest {
         attributes([
-            "Specification-Title": "secondchanceforge",
-            "Specification-Vendor": "infernalstudios",
-            "Specification-Version": "1", // We are version 1 of ourselves
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"infernalstudios",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-            "MixinConfigs": "secondchanceforge.mixins.json",
-            "MixinConnector": "org.infernalstudios.secondchanceforge.mixin.MixinConnector"
+                'Specification-Title'   : config.TITLE,
+                'Specification-Vendor'  : config.AUTHOR,
+                'Specification-Version' : '1',
+                'Implementation-Title'  : config.TITLE,
+                'Implementation-Version': config.VERSION,
+                'Implementation-Vendor' : config.AUTHOR,
+                'MixinConfigs'          : 'secondchanceforge.mixins.json'
         ])
     }
 }
 
 jar.finalizedBy('reobfJar')
+
+task sourcesJar(type: Jar) {
+    archiveClassifier.set('sources')
+    from sourceSets.main.allJava
+}
+
+tasks.build.dependsOn sourcesJar
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = config.GROUP
+            artifactId = config.ARTIFACT
+            artifact jar
+
+            pom {
+                name = 'Second Chance (Forge)'
+                url = 'https://infernalstudios.org/secondchanceforge'
+                licenses {
+                    license {
+                        name = 'Apache License 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/infernalexp/Second-Chance-Forge.git'
+                    url = 'https://github.com/infernalexp/Second-Chance-Forge'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            url 'https://maven.infernalstudios.org/releases'
+
+
+            credentials {
+                username = System.getenv('MAVEN_USER')
+                password = System.getenv('MAVEN_TOKEN')
+            }
+
+            authentication {
+                basic(BasicAuthentication)
+            }
+        }
+    }
+}
+
+// Modrinth publishing
+import com.modrinth.minotaur.TaskModrinthUpload
+
+task publishModrinth (type: TaskModrinthUpload) {
+    onlyIf {
+        System.getenv('MODRINTH')
+    }
+
+    token = System.getenv('MODRINTH')
+    projectId = 'H6rTJkIn'
+    versionNumber = project.version
+    versionName = "Second Chance (Forge) Release ${project.version}"
+    uploadFile = jar
+    addGameVersion(config.MINECRAFT_VERSION)
+    addLoader('forge')
+}
+
+// Curseforge publishing
+curseforge {
+    apiKey = System.getenv('CURSEFORGE') ?: 'If you\'re seeing this, you haven\'t set your "CURSEFORGE" environment variable'
+
+    project {
+        id = '509239'
+        changelog = 'No changelog specified.'
+        releaseType = 'release'
+        addGameVersion config.MINECRAFT_VERSION
+        mainArtifact (jar) {
+            displayName = "Second Chance (Forge) Release ${project.version}"
+        }
+    }
+}
+
+
+// Config parse function
+def parseConfig(File config) {
+    config.withReader {
+        def prop = new Properties()
+        prop.load(it)
+        return (new ConfigSlurper().parse(prop))
+    }
+}
+
+if (System.getProperty("idea.sync.active") == "true") {
+    afterEvaluate {
+        tasks.withType(JavaCompile).all {
+            it.options.annotationProcessorPath = files()
+        }
+    }
+}
+

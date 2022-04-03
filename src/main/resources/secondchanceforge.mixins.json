@@ -7,7 +7,7 @@
   "injectors": {
     "defaultRequire": 1
   },
-  "client": [
-    "org.infernalstudios.secondchanceforge.mixin.client.MixinLivingEntity"
+  "mixins": [
+    "MixinLivingEntity"
   ]
 }

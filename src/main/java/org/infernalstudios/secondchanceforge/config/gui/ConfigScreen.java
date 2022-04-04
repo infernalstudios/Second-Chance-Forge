@@ -91,7 +91,7 @@ public class ConfigScreen extends Screen {
 				)
 		);
 
-		children.add(optionsRowList); // children is private by default, use an access transformer to be able to use it
+		addWidget(optionsRowList);
 
 		addRenderableWidget(new Button((width - 200) / 2, height - 26, 200, 20, new TranslatableComponent("gui.done"), button -> onClose()));
 	}

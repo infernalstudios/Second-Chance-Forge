@@ -177,7 +177,7 @@ task publishModrinth (type: TaskModrinthUpload) {
     token = System.getenv('MODRINTH')
     projectId = 'H6rTJkIn'
     versionNumber = project.version
-    versionName = "Second Chance (Forge) Release ${project.version}"
+    versionName = "Second Chance (Forge) Release ${project.version} for Minecraft 1.18.x"
     uploadFile = jar
     addGameVersion(config.MINECRAFT_VERSION)
     addLoader('forge')
@@ -191,9 +191,11 @@ curseforge {
         id = '509239'
         changelog = 'No changelog specified.'
         releaseType = 'release'
-        addGameVersion config.MINECRAFT_VERSION
+        addGameVersion '1.18'
+        addGameVersion '1.18.1'
+        addGameVersion '1.18.2'
         mainArtifact (jar) {
-            displayName = "Second Chance (Forge) Release ${project.version}"
+            displayName = "Second Chance (Forge) Release ${project.version} for Minecraft 1.18.x"
         }
     }
 }

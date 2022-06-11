@@ -22,8 +22,11 @@ public class SecondChanceConfig {
     public final ForgeConfigSpec.BooleanValue secondChanceExplosions;
     public final ForgeConfigSpec.BooleanValue secondChanceMobs;
     public final ForgeConfigSpec.IntValue coyoteTimeTicks;
+    public final ForgeConfigSpec.BooleanValue usePercentConfig;
     public final ForgeConfigSpec.DoubleValue secondChanceActivationHealth;
     public final ForgeConfigSpec.DoubleValue secondChanceHealthRemainder;
+    public final ForgeConfigSpec.DoubleValue secondChanceActivationPercent;
+    public final ForgeConfigSpec.DoubleValue secondChanceRemainderPercent;
 
     public SecondChanceConfig(Builder builder) {
         coyoteTimeEnabled = builder
@@ -59,6 +62,11 @@ public class SecondChanceConfig {
                 .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceMobs")
                 .define("secondChanceMobs", true);
 
+        usePercentConfig = builder
+                .comment("Determines if the 'percentage of health' config values will be used instead of exact values.")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.usePercentConfig")
+                .define("usePercentConfig", false);
+
         secondChanceActivationHealth = builder
                 .comment("Determines how much health the player must start with for 'Second Chance' to activate.")
                 .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceActivationHealth")
@@ -68,5 +76,15 @@ public class SecondChanceConfig {
                 .comment("Determines how much health the player should be left with after 'Second Chance' activates.")
                 .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceHealthRemainder")
                 .defineInRange("secondChanceHealthRemainder", 1.0D, 1.0D, Double.MAX_VALUE);
+
+        secondChanceActivationPercent = builder
+                .comment("Determines what percent of health the player must start with for 'Second Chance' to activate.")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceActivationPercent")
+                .defineInRange("secondChanceActivationPercent", 65.0D, 0.01D, Double.MAX_VALUE);
+
+        secondChanceRemainderPercent = builder
+                .comment("Determines what percent health the player should be left with after 'Second Chance' activates.")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceRemainderPercent")
+                .defineInRange("secondChanceHealthPercent", 5.0D, 0.01D, Double.MAX_VALUE);
     }
 }

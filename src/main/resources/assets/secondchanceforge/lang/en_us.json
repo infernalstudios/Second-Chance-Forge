@@ -19,9 +19,18 @@
   "secondchanceforge.config.option.secondChanceMobs": "Second Chance Mobs",
   "secondchanceforge.config.tooltip.secondChanceMobs": "Determines if the 'Second Chance' feature will be activated by mobs.",
 
+  "secondchanceforge.config.option.usePercentConfig": "Use Percent Config",
+  "secondchanceforge.config.tooltip.usePercentConfig": "Determines if the 'percentage of health' config values will be used instead of exact values.",
+
   "secondchanceforge.config.option.secondChanceActivationHealth": "Second Chance Activation Health",
   "secondchanceforge.config.tooltip.secondChanceActivationHealth": "Determines how much health the player must start with for 'Second Chance' to activate.",
 
   "secondchanceforge.config.option.secondChanceHealthRemainder": "Second Chance Health Remainder",
-  "secondchanceforge.config.tooltip.secondChanceHealthRemainder": "Determines how much health the player should be left with after 'Second Chance' activates."
+  "secondchanceforge.config.tooltip.secondChanceHealthRemainder": "Determines how much health the player should be left with after 'Second Chance' activates.",
+
+  "secondchanceforge.config.option.secondChanceActivationPercent": "Second Chance Activation Percent",
+  "secondchanceforge.config.tooltip.secondChanceActivationPercent": "Determines what percent of health the player must start with for 'Second Chance' to activate.",
+
+  "secondchanceforge.config.option.secondChanceRemainderPercent": "Second Chance Remainder Percent",
+  "secondchanceforge.config.tooltip.secondChanceRemainderPercent": "Determines what percent of health the player should be left with after 'Second Chance' activates."
 }

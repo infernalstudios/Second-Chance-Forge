@@ -74,6 +74,12 @@ public class ConfigScreen extends Screen {
                 settings -> SecondChanceConfig.CONFIG.secondChanceMobs.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceMobs.set(value)
         ));
 
+        // Use Percent Config
+        optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.usePercentConfig",
+                new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.usePercentConfig"),
+                settings -> SecondChanceConfig.CONFIG.usePercentConfig.get(), (settings, value) -> SecondChanceConfig.CONFIG.usePercentConfig.set(value)
+        ));
+
 		// Second Chance Activation Health
 		optionsRowList.addBig(new SliderPercentageOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceActivationHealth", 0.5D, 100.0D, 0.5F,
 						settings -> SecondChanceConfig.CONFIG.secondChanceActivationHealth.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceActivationHealth.set(value),
@@ -99,6 +105,32 @@ public class ConfigScreen extends Screen {
 						}
 				)
 		);
+
+        // Second Chance Activation Percent
+        optionsRowList.addBig(new SliderPercentageOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceActivationPercent", 1.0D, 100.0D, 1.0F,
+                        settings -> SecondChanceConfig.CONFIG.secondChanceActivationPercent.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceActivationPercent.set(value),
+                        (settings, option) -> {
+                            option.setTooltip(Minecraft.getInstance().font.split(
+                                    new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceActivationPercent"), 200));
+
+                            return new TranslationTextComponent("options.generic_value", option.getCaption(), // getBaseMessageTranslation() is protected by default, use an access transformer to be able to use it
+                                    new StringTextComponent(Double.toString((double) Math.round(option.get(settings) * 100) / 100)));
+                        }
+                )
+        );
+
+        // Second Chance Remainder Percent
+        optionsRowList.addBig(new SliderPercentageOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceRemainderPercent", 1.0D, 100.0D, 1.0F,
+                        settings -> SecondChanceConfig.CONFIG.secondChanceRemainderPercent.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceRemainderPercent.set(value),
+                        (settings, option) -> {
+                            option.setTooltip(Minecraft.getInstance().font.split(
+                                    new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceRemainderPercent"), 200));
+
+                            return new TranslationTextComponent("options.generic_value", option.getCaption(), // getBaseMessageTranslation() is protected by default, use an access transformer to be able to use it
+                                    new StringTextComponent(Double.toString((double) Math.round(option.get(settings) * 100) / 100)));
+                        }
+                )
+        );
 
 		children.add(optionsRowList);
 

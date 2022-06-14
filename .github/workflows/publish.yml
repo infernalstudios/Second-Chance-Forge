@@ -3,7 +3,7 @@ name: Publish
 on:
   push:
     tags:
-      - '1.18/*'
+      - '1.19/*'
 
 jobs:
   publish:

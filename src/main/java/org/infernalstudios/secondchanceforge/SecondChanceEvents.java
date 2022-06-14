@@ -20,10 +20,10 @@ public class SecondChanceEvents {
 
         if (entity instanceof Player) {
             Player player = (Player) entity;
-            double activationHealth = SecondChanceConfig.CONFIG.usePercentConfig.get() ? SecondChanceConfig.CONFIG.secondChanceActivationPercent.get() * player.getMaxHealth() / 100 : SecondChanceConfig.CONFIG.secondChanceActivationHealth.get();
-            double remainderHealth = SecondChanceConfig.CONFIG.usePercentConfig.get() ? SecondChanceConfig.CONFIG.secondChanceRemainderPercent.get() * player.getMaxHealth() / 100 : SecondChanceConfig.CONFIG.secondChanceHealthRemainder.get();
+            double activationHealth = SecondChanceConfig.CONFIG.usePercentConfig.get() ? SecondChanceConfig.CONFIG.secondChanceActivationPercent.get() * player.getMaxHealth() : SecondChanceConfig.CONFIG.secondChanceActivationHealth.get();
+            double remainderHealth = SecondChanceConfig.CONFIG.usePercentConfig.get() ? SecondChanceConfig.CONFIG.secondChanceRemainderPercent.get() * player.getMaxHealth() : SecondChanceConfig.CONFIG.secondChanceHealthRemainder.get();
 
-            if (SecondChanceConfig.CONFIG.secondChanceEnabled.get() && canActivateSecondChance(source) && player.getHealth() <= event.getAmount() && player.getHealth() >= activationHealth) {
+            if (SecondChanceConfig.CONFIG.secondChanceEnabled.get() && player.getHealth() <= event.getAmount() && player.getHealth() >= activationHealth && canActivateSecondChance(source)) {
                 if (SecondChanceConfig.CONFIG.secondChanceSound.get()) {
                     player.getCommandSenderWorld().playSound(null, player.getX(), player.getY(), player.getZ(), SecondChanceSoundEvents.CLASSIC_HURT.get(), SoundSource.PLAYERS, 2.0F, 1.0F);
                 }

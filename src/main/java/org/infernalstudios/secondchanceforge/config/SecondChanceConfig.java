@@ -159,11 +159,11 @@ public class SecondChanceConfig {
         secondChanceActivationPercent = builder
                 .comment("Determines what percent of health the player must start with for 'Second Chance' to activate.")
                 .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceActivationPercent")
-                .defineInRange("secondChanceActivationPercent", 65.0D, 0.01D, Double.MAX_VALUE);
+                .defineInRange("secondChanceActivationPercent", 0.65D, 0.01D, Double.MAX_VALUE);
 
         secondChanceRemainderPercent = builder
                 .comment("Determines what percent health the player should be left with after 'Second Chance' activates.")
                 .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceRemainderPercent")
-                .defineInRange("secondChanceHealthPercent", 5.0D, 0.01D, Double.MAX_VALUE);
+                .defineInRange("secondChanceHealthPercent", 0.05D, 0.01D, Double.MAX_VALUE);
     }
 }

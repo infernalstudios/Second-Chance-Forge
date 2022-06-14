@@ -19,6 +19,45 @@
   "secondchanceforge.config.option.secondChanceMobs": "Second Chance Mobs",
   "secondchanceforge.config.tooltip.secondChanceMobs": "Determines if the 'Second Chance' feature will be activated by mobs.",
 
+  "secondchanceforge.config.option.secondChanceFalls": "Second Chance Falls",
+  "secondchanceforge.config.tooltip.secondChanceFalls": "Determines if the 'Second Chance' feature will be activated by fall damage.",
+
+  "secondchanceforge.config.option.secondChanceAnvils": "Second Chance Anvils",
+  "secondchanceforge.config.tooltip.secondChanceAnvils": "Determines if the 'Second Chance' feature will be activated by falling anvils.",
+
+  "secondchanceforge.config.option.secondChanceLightning": "Second Chance Lightning",
+  "secondchanceforge.config.tooltip.secondChanceLightning": "Determines if the 'Second Chance' feature will be activated by lightning.",
+
+  "secondchanceforge.config.option.secondChanceElytraCrash": "Second Chance Elytra Crash",
+  "secondchanceforge.config.tooltip.secondChanceElytraCrash": "Determines if the 'Second Chance' feature will be activated by crashing into a wall.",
+
+  "secondchanceforge.config.option.secondChanceFallingBlocks": "Second Chance Falling Blocks",
+  "secondchanceforge.config.tooltip.secondChanceFallingBlocks": "Determines if the 'Second Chance' feature will be activated by falling blocks.",
+
+  "secondchanceforge.config.option.secondChanceMagic": "Second Chance Magic",
+  "secondchanceforge.config.tooltip.secondChanceMagic": "Determines if the 'Second Chance' feature will be activated by magic, such as potions.",
+
+  "secondchanceforge.config.option.secondChancePlayers": "Second Chance Players",
+  "secondchanceforge.config.tooltip.secondChancePlayers": "Determines if the 'Second Chance' feature will be activated by players.",
+
+  "secondchanceforge.config.option.secondChanceTridents": "Second Chance Tridents",
+  "secondchanceforge.config.tooltip.secondChanceTridents": "Determines if the 'Second Chance' feature will be activated by thrown tridents.",
+
+  "secondchanceforge.config.option.secondChanceArrows": "Second Chance Arrows",
+  "secondchanceforge.config.tooltip.secondChanceArrows": "Determines if the 'Second Chance' feature will be activated by arrows.",
+
+  "secondchanceforge.config.option.secondChanceFireworks": "Second Chance Fireworks",
+  "secondchanceforge.config.tooltip.secondChanceFireworks": "Determines if the 'Second Chance' feature will be activated by fireworks.",
+
+  "secondchanceforge.config.option.secondChanceWitherSkulls": "Second Chance Wither Skulls",
+  "secondchanceforge.config.tooltip.secondChanceWitherSkulls": "Determines if the 'Second Chance' feature will be activated by Wither skulls.",
+
+  "secondchanceforge.config.option.secondChanceStalactite": "Second Chance Stalactite",
+  "secondchanceforge.config.tooltip.secondChanceStalactite": "Determines if the 'Second Chance' feature will be activated by a falling stalactite.",
+
+  "secondchanceforge.config.option.secondChanceStalagmite": "Second Chance Stalagmite",
+  "secondchanceforge.config.tooltip.secondChanceStalagmite": "Determines if the 'Second Chance' feature will be activated by falling on a stalagmite.",
+
   "secondchanceforge.config.option.usePercentConfig": "Use Percent Config",
   "secondchanceforge.config.tooltip.usePercentConfig": "Determines if the 'percentage of health' config values will be used instead of exact values.",
 

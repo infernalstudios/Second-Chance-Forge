@@ -71,6 +71,84 @@ public class ConfigScreen extends Screen {
                 settings -> SecondChanceConfig.CONFIG.secondChanceMobs.get(), (settings, option, value) -> SecondChanceConfig.CONFIG.secondChanceMobs.set(value)
         ));
 
+        // Second Chance Falls
+        optionsRowList.addBig(CycleOption.createOnOff(SecondChanceForge.MOD_ID + ".config.option.secondChanceFalls",
+                new TranslatableComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceFalls"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceFalls.get(), (settings, option, value) -> SecondChanceConfig.CONFIG.secondChanceFalls.set(value)
+        ));
+
+        // Second Chance Anvils
+        optionsRowList.addBig(CycleOption.createOnOff(SecondChanceForge.MOD_ID + ".config.option.secondChanceAnvils",
+                new TranslatableComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceAnvils"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceAnvils.get(), (settings, option, value) -> SecondChanceConfig.CONFIG.secondChanceAnvils.set(value)
+        ));
+
+        // Second Chance Lightning
+        optionsRowList.addBig(CycleOption.createOnOff(SecondChanceForge.MOD_ID + ".config.option.secondChanceLightning",
+                new TranslatableComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceLightning"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceLightning.get(), (settings, option, value) -> SecondChanceConfig.CONFIG.secondChanceLightning.set(value)
+        ));
+
+        // Second Chance Elytra Crash
+        optionsRowList.addBig(CycleOption.createOnOff(SecondChanceForge.MOD_ID + ".config.option.secondChanceElytraCrash",
+                new TranslatableComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceElytraCrash"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceElytraCrash.get(), (settings, option, value) -> SecondChanceConfig.CONFIG.secondChanceElytraCrash.set(value)
+        ));
+
+        // Second Chance Falling Blocks
+        optionsRowList.addBig(CycleOption.createOnOff(SecondChanceForge.MOD_ID + ".config.option.secondChanceFallingBlocks",
+                new TranslatableComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceFallingBlocks"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceFallingBlocks.get(), (settings, option, value) -> SecondChanceConfig.CONFIG.secondChanceFallingBlocks.set(value)
+        ));
+
+        // Second Chance Magic
+        optionsRowList.addBig(CycleOption.createOnOff(SecondChanceForge.MOD_ID + ".config.option.secondChanceMagic",
+                new TranslatableComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceMagic"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceMagic.get(), (settings, option, value) -> SecondChanceConfig.CONFIG.secondChanceMagic.set(value)
+        ));
+
+        // Second Chance Players
+        optionsRowList.addBig(CycleOption.createOnOff(SecondChanceForge.MOD_ID + ".config.option.secondChancePlayers",
+                new TranslatableComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChancePlayers"),
+                settings -> SecondChanceConfig.CONFIG.secondChancePlayers.get(), (settings, option, value) -> SecondChanceConfig.CONFIG.secondChancePlayers.set(value)
+        ));
+
+        // Second Chance Tridents
+        optionsRowList.addBig(CycleOption.createOnOff(SecondChanceForge.MOD_ID + ".config.option.secondChanceTridents",
+                new TranslatableComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceTridents"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceTridents.get(), (settings, option, value) -> SecondChanceConfig.CONFIG.secondChanceTridents.set(value)
+        ));
+
+        // Second Chance Arrows
+        optionsRowList.addBig(CycleOption.createOnOff(SecondChanceForge.MOD_ID + ".config.option.secondChanceArrows",
+                new TranslatableComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceArrows"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceArrows.get(), (settings, option, value) -> SecondChanceConfig.CONFIG.secondChanceArrows.set(value)
+        ));
+
+        // Second Chance Fireworks
+        optionsRowList.addBig(CycleOption.createOnOff(SecondChanceForge.MOD_ID + ".config.option.secondChanceFireworks",
+                new TranslatableComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceFireworks"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceFireworks.get(), (settings, option, value) -> SecondChanceConfig.CONFIG.secondChanceFireworks.set(value)
+        ));
+
+        // Second Chance Wither Skulls
+        optionsRowList.addBig(CycleOption.createOnOff(SecondChanceForge.MOD_ID + ".config.option.secondChanceWitherSkulls",
+                new TranslatableComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceWitherSkulls"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceWitherSkulls.get(), (settings, option, value) -> SecondChanceConfig.CONFIG.secondChanceWitherSkulls.set(value)
+        ));
+
+        // Second Chance Stalactite
+        optionsRowList.addBig(CycleOption.createOnOff(SecondChanceForge.MOD_ID + ".config.option.secondChanceStalactite",
+                new TranslatableComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceStalactite"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceStalactite.get(), (settings, option, value) -> SecondChanceConfig.CONFIG.secondChanceStalactite.set(value)
+        ));
+
+        // Second Chance Stalagmite
+        optionsRowList.addBig(CycleOption.createOnOff(SecondChanceForge.MOD_ID + ".config.option.secondChanceStalagmite",
+                new TranslatableComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceStalagmite"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceStalagmite.get(), (settings, option, value) -> SecondChanceConfig.CONFIG.secondChanceStalagmite.set(value)
+        ));
+
         // Use Percent Config
         optionsRowList.addBig(CycleOption.createOnOff(SecondChanceForge.MOD_ID + ".config.option.usePercentConfig",
                 new TranslatableComponent(SecondChanceForge.MOD_ID + ".config.tooltip.usePercentConfig"),

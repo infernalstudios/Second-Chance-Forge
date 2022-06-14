@@ -50,7 +50,7 @@ jobs:
         with:
           artifacts: "./build/libs/*"
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: Release ${{ steps.get_version.outputs.VERSION }} for Minecraft 1.18.x
+          name: Release ${{ steps.get_version.outputs.VERSION }} for Minecraft 1.19
 
       - name: Publish to Infernal Studios Maven
         run: ./gradlew publish

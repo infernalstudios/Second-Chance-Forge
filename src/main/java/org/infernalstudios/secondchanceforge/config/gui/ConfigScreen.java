@@ -74,6 +74,72 @@ public class ConfigScreen extends Screen {
                 settings -> SecondChanceConfig.CONFIG.secondChanceMobs.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceMobs.set(value)
         ));
 
+        // Second Chance Falls
+        optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceFalls",
+                new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceFalls"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceFalls.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceFalls.set(value)
+        ));
+
+        // Second Chance Anvils
+        optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceAnvils",
+                new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceAnvils"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceAnvils.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceAnvils.set(value)
+        ));
+
+        // Second Chance Lightning
+        optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceLightning",
+                new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceLightning"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceLightning.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceLightning.set(value)
+        ));
+
+        // Second Chance Elytra Crash
+        optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceElytraCrash",
+                new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceElytraCrash"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceElytraCrash.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceElytraCrash.set(value)
+        ));
+
+        // Second Chance Falling Blocks
+        optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceFallingBlocks",
+                new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceFallingBlocks"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceFallingBlocks.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceFallingBlocks.set(value)
+        ));
+
+        // Second Chance Magic
+        optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceMagic",
+                new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceMagic"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceMagic.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceMagic.set(value)
+        ));
+
+        // Second Chance Players
+        optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChancePlayers",
+                new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChancePlayers"),
+                settings -> SecondChanceConfig.CONFIG.secondChancePlayers.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChancePlayers.set(value)
+        ));
+
+        // Second Chance Tridents
+        optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceTridents",
+                new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceTridents"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceTridents.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceTridents.set(value)
+        ));
+
+        // Second Chance Arrows
+        optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceArrows",
+                new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceArrows"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceArrows.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceArrows.set(value)
+        ));
+
+        // Second Chance Fireworks
+        optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceFireworks",
+                new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceFireworks"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceFireworks.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceFireworks.set(value)
+        ));
+
+        // Second Chance Wither Skulls
+        optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.secondChanceWitherSkulls",
+                new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceWitherSkulls"),
+                settings -> SecondChanceConfig.CONFIG.secondChanceWitherSkulls.get(), (settings, value) -> SecondChanceConfig.CONFIG.secondChanceWitherSkulls.set(value)
+        ));
+
         // Use Percent Config
         optionsRowList.addBig(new BooleanOption(SecondChanceForge.MOD_ID + ".config.option.usePercentConfig",
                 new TranslationTextComponent(SecondChanceForge.MOD_ID + ".config.tooltip.usePercentConfig"),

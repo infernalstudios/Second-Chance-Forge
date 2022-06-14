@@ -21,6 +21,18 @@ public class SecondChanceConfig {
     public final ForgeConfigSpec.BooleanValue secondChanceSound;
     public final ForgeConfigSpec.BooleanValue secondChanceExplosions;
     public final ForgeConfigSpec.BooleanValue secondChanceMobs;
+    public final ForgeConfigSpec.BooleanValue secondChanceFalls;
+    public final ForgeConfigSpec.BooleanValue secondChanceAnvils;
+    public final ForgeConfigSpec.BooleanValue secondChanceLightning;
+    public final ForgeConfigSpec.BooleanValue secondChanceElytraCrash;
+    public final ForgeConfigSpec.BooleanValue secondChanceFallingBlocks;
+    public final ForgeConfigSpec.BooleanValue secondChanceMagic;
+    public final ForgeConfigSpec.BooleanValue secondChancePlayers;
+    public final ForgeConfigSpec.BooleanValue secondChanceTridents;
+    public final ForgeConfigSpec.BooleanValue secondChanceArrows;
+    public final ForgeConfigSpec.BooleanValue secondChanceFireworks;
+    public final ForgeConfigSpec.BooleanValue secondChanceWitherSkulls;
+
     public final ForgeConfigSpec.IntValue coyoteTimeTicks;
     public final ForgeConfigSpec.BooleanValue usePercentConfig;
     public final ForgeConfigSpec.DoubleValue secondChanceActivationHealth;
@@ -61,6 +73,61 @@ public class SecondChanceConfig {
                 .comment("Determines if the 'Second Chance' feature will be activated by mobs.")
                 .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceMobs")
                 .define("secondChanceMobs", true);
+
+        secondChanceFalls = builder
+                .comment("Determines if the 'Second Chance' feature will be activated by fall damage.")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceFalls")
+                .define("secondChanceFalls", false);
+
+        secondChanceAnvils = builder
+                .comment("Determines if the 'Second Chance' feature will be activated by falling anvils.")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceAnvils")
+                .define("secondChanceAnvils", false);
+
+        secondChanceLightning = builder
+                .comment("Determines if the 'Second Chance' feature will be activated by lightning.")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceLightning")
+                .define("secondChanceLightning", false);
+
+        secondChanceElytraCrash = builder
+                .comment("Determines if the 'Second Chance' feature will be activated by crashing into a wall.")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceElytraCrash")
+                .define("secondChanceElytraCrash", false);
+
+        secondChanceFallingBlocks = builder
+                .comment("Determines if the 'Second Chance' feature will be activated by falling blocks.")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceFallingBlocks")
+                .define("secondChanceFallingBlocks", false);
+
+        secondChanceMagic = builder
+                .comment("Determines if the 'Second Chance' feature will be activated by magic, such as potions.")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceMagic")
+                .define("secondChanceMagic", false);
+
+        secondChancePlayers = builder
+                .comment("Determines if the 'Second Chance' feature will be activated by players.")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChancePlayers")
+                .define("secondChancePlayers", false);
+
+        secondChanceTridents = builder
+                .comment("Determines if the 'Second Chance' feature will be activated by thrown tridents.")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceTridents")
+                .define("secondChanceTridents", false);
+
+        secondChanceArrows = builder
+                .comment("Determines if the 'Second Chance' feature will be activated by arrows.")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceArrows")
+                .define("secondChanceArrows", false);
+
+        secondChanceFireworks = builder
+                .comment("Determines if the 'Second Chance' feature will be activated by fireworks.")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceFireworks")
+                .define("secondChanceFireworks", false);
+
+        secondChanceWitherSkulls = builder
+                .comment("Determines if the 'Second Chance' feature will be activated by wither skulls.")
+                .translation(SecondChanceForge.MOD_ID + ".config.tooltip.secondChanceWitherSkulls")
+                .define("secondChanceWitherSkulls", false);
 
         usePercentConfig = builder
                 .comment("Determines if the 'percentage of health' config values will be used instead of exact values.")

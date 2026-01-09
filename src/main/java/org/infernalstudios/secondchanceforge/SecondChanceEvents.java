@@ -1,39 +1,38 @@
 package org.infernalstudios.secondchanceforge;
 
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.DamageTypeTags;
-import org.infernalstudios.secondchanceforge.config.SecondChanceConfig;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.sounds.SoundSource;
-import net.minecraftforge.event.entity.living.LivingDamageEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import org.infernalstudios.secondchanceforge.config.SecondChanceConfig;
 
-@Mod.EventBusSubscriber(modid = SecondChanceForge.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = SecondChanceForge.MOD_ID)
 public class SecondChanceEvents {
 
     // Called when an entity takes damage
     @SubscribeEvent
-    public void onEntityDamage(LivingDamageEvent event) {
+    public static void onEntityDamage(LivingDamageEvent.Pre event) {
         LivingEntity entity = event.getEntity();
         DamageSource source = event.getSource();
 
-        if (entity instanceof Player) {
-            Player player = (Player) entity;
+        if (entity instanceof Player player) {
             double activationHealth = SecondChanceConfig.CONFIG.usePercentConfig.get() ? SecondChanceConfig.CONFIG.secondChanceActivationPercent.get() * player.getMaxHealth() : SecondChanceConfig.CONFIG.secondChanceActivationHealth.get();
             double remainderHealth = SecondChanceConfig.CONFIG.usePercentConfig.get() ? SecondChanceConfig.CONFIG.secondChanceRemainderPercent.get() * player.getMaxHealth() : SecondChanceConfig.CONFIG.secondChanceHealthRemainder.get();
 
-            if (SecondChanceConfig.CONFIG.secondChanceEnabled.get() && player.getHealth() <= event.getAmount() && player.getHealth() >= activationHealth && canActivateSecondChance(source)) {
+            if (SecondChanceConfig.CONFIG.secondChanceEnabled.get() && player.getHealth() <= event.getOriginalDamage() && player.getHealth() >= activationHealth && canActivateSecondChance(source)) {
                 if (SecondChanceConfig.CONFIG.secondChanceSound.get()) {
-                    player.getCommandSenderWorld().playSound(null, player.getX(), player.getY(), player.getZ(), SecondChanceSoundEvents.CLASSIC_HURT.get(), SoundSource.PLAYERS, 2.0F, 1.0F);
+                    player.getCommandSenderWorld().playSound(null, player.getX(), player.getY(), player.getZ(), SecondChanceSoundEvents.CLASSIC_HURT, SoundSource.PLAYERS, 2.0F, 1.0F);
                 }
-                event.setAmount((float)(player.getHealth() - remainderHealth));
+                event.setNewDamage((float)(player.getHealth() - remainderHealth));
             }
         }
     }
 
-    private boolean canActivateSecondChance(DamageSource source) {
+    private static boolean canActivateSecondChance(DamageSource source) {
         boolean activateForExplosion = SecondChanceConfig.CONFIG.secondChanceExplosions.get() && source.is(DamageTypeTags.IS_EXPLOSION);
         boolean activateForMob = SecondChanceConfig.CONFIG.secondChanceMobs.get() && source.getMsgId().equals("mob");
         boolean activateForFallDamage = SecondChanceConfig.CONFIG.secondChanceFalls.get() && source.getMsgId().equals("fall");
